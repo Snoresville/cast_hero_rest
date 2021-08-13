@@ -49,7 +49,7 @@ function cast_rest:OnAbilityFullyCast(kv)
     
     for _, unit in pairs(units_found) do
         if unit and not unit:IsNull() and unit ~= target then
-            if ability:IsItem() then
+            if ability:IsItem() and ability.GetCurrentCharges then
                 ability:SetCurrentCharges(ability:GetCurrentCharges() + 1)
             end
             self:GetParent():SetCursorCastTarget(unit)
